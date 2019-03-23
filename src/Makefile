@@ -12,6 +12,7 @@ clean:
 	rm funcptr5 funcptr5-nocfi
 	rm funcptr7 funcptr7-nocfi
 	rm retbof retbof-nosafestack
+	rm funcptr-got funcptr-got-all funcptr-got-all-pie
 
 funcptr2: funcptr2.c
 	clang funcptr2.c $(CFIFLAGS) -o funcptr2
@@ -38,6 +39,11 @@ funcptr8: funcptr8.c funcptr8lib.c
 	clang -c $(CFIFLAGS) funcptr8.c 
 	clang -c funcptr8lib.c 
 	clang -o funcptr8 funcptr8.o funcptr8lib.o
+
+funcptr-got: funcptr-got.c
+	clang  -fsanitize=cfi -flto -fvisibility=hidden funcptr-got.c  -o funcptr-got
+	clang  -fsanitize=cfi -flto -fvisibility=hidden funcptr-got.c  -Wl,-z,now -Wl,-z,relro  -o funcptr-got-all
+	clang  -fpie -pie -fsanitize=cfi -flto -fvisibility=hidden funcptr-got.c  -Wl,-z,now -Wl,-z,relro  -o funcptr-got-all-pie
 
 
 retbof: retbof.c
