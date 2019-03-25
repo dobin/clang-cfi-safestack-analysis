@@ -2,7 +2,7 @@ CC=clang
 CFIFLAGS=-fsanitize=cfi -flto -fvisibility=hidden
 SAFESTACKFLAGS=-fsanitize=safe-stack
 
-all: funcptr2 funcptr3 funcptr4 funcptr5 funcptr7 funcptr8 retbof
+all: funcptr2 funcptr3 funcptr4 funcptr5 funcptr7 funcptr8 retbof funcptr-got
 
 clean:
 	rm funcptr8 funcptr8.o funcptr8lib.o
