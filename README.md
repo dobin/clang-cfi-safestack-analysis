@@ -1,8 +1,7 @@
-# Clang 6 CFI/SafeStack Analysis
+# Clang CFI/SafeStack Analysis 
+## The end of memory corruption exploits?
 
-* Paper
-* Source
+* [Clang CFI/SafeStack Analysis Paper](https://github.com/dobin/clang-cfi-safestack-analysis/blob/master/Clang-CFI-SafeStack-Analysis.pdf)
+* Source at src/
 
-## Reviewers
 
-* 
